@@ -61,7 +61,7 @@
                                         <label>
                                             Difficulty <span style="color: red;">*</span>
                                         </label><br>
-                                        <select class="form-control" required name="difficulty1" ngModel
+                                        <select class="form-control" required name="difficulty" ngModel
                                             #difficulty="ngModel" [(ngModel)]="difficultylevel">
                                             <option value="easy">easy</option>
                                             <option value="medium" selected>medium</option>
@@ -111,7 +111,7 @@
                                         <label>
                                             Question <span style="color: red;">*</span>
                                         </label><br>
-                                        <select class="form-control" required name="questionname" ngModel
+                                        <select class="form-control" required name="question" ngModel
                                             #questions="ngModel" [(ngModel)]="questionname">
                                             <option value="Test1">Test1</option>
                                             <option value="Test2" >Test2</option>
@@ -329,7 +329,7 @@
                             </div>
                         </div>
                         <button type="submit" *ngIf="selectedOption != ''" [disabled]="!form.valid"
-                            class="btn btn-primary" (click)="localstoragedata()">submit Answers  </button>
+                            class="btn btn-primary" >submit Answers  </button>
 
                     </div>
                 </div>

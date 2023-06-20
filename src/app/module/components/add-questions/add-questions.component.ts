@@ -46,39 +46,19 @@ export class AddQuestionsComponent {
 // set the values to localStorage
   submit(data: any) {
     console.log(data)
-    localStorage.setItem('code', data['code'])
-    localStorage.setItem('question', data['questionname'])
-    localStorage.setItem('timeLimit', data['timeLimit'])
-    localStorage.setItem('difficulty', data['difficulty1'])
-    localStorage.setItem('type', data['questionType'])
+    this.mainArray =JSON.parse( localStorage.getItem('updated')  || '')
+    
+    // push values to array
+    this.mainArray.push(data)
+
+    
+    // set values into  localstaorage
+    localStorage.setItem("updated", JSON.stringify(this.mainArray))
+    console.log("after push*******",this.mainArray);//
     
     // navigate to landing page
     this.router.navigate(['/questionField/landingpage'])
   }
 
-// get values from localStorage
-
-  localstoragedata(){
-
-      this.code = localStorage.getItem('code') || null
-      // console.log(this.code)
-      this.question = localStorage.getItem('question') || null
-      // console.log(this.question)
-      this.timeLimit = localStorage.getItem('timeLimit') || null
-      // console.log(this.timeLimit)
-      this.difficulty = localStorage.getItem('difficulty') || null
-      // console.log(this.difficulty)
-      this.type = localStorage.getItem('type') || null
-  
-    
-    this.mainArray =JSON.parse( localStorage.getItem('updated')  || '')
-    // push values
-    this.mainArray.push({"code":this.code,"question":this.question,"timeLimit":this.timeLimit,"difficulty":this.difficulty,"questionType":this.type})
-    // set values into  previous array
-    localStorage.setItem("updated", JSON.stringify(this.mainArray))
-    console.log("after push*******",this.mainArray);
-  
-  
-  }
 }
 
