@@ -1,0 +1,31 @@
+.custom-width {
+    width: 250px;
+    display: flex;
+ }
+ .row .dropdown, .scoreLabel{
+    flex: .01;
+ }
+.row{
+    display: flex;
+    margin-left: 50PX;
+}
+ .dropdown{
+    padding: 20px;
+ }
+ .accordion-button{
+    background-color:#FFC107;
+ }
+ #idrow{
+    padding: 19px;
+ }
+ .divExtentionclass{
+   border: 1px solid black;
+   padding: 20px;
+   margin: 10px;
+ }
+ .divExtention{
+   border: 1px solid black;
+   padding: 10px;
+   border-radius: 10px;
+
+ }

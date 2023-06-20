@@ -1,0 +1,339 @@
+<!-- accordion -->
+<div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+        <form #form="ngForm" (ngSubmit)="submit(form.value)">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseOne">
+                    STEP 1 : ADD QUESTION
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+
+                    <table class="table table-borderd">
+                        <tbody>
+
+                            <tr class="p-5">
+                                <td>
+                                    <div class="dropdown">
+                                        <label>
+                                            Papper Code<span style="color: red;">*</span>
+                                        </label><br>
+                                        <div class="form-group">
+                                            <select class="form-control" required ngModel #code="ngModel" name="code"
+                                                id="dropdown2" [(ngModel)]="qstnCode">
+                                                <option value="QTM001">QTM001</option>
+                                                <option value="QTM002">QTM002</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="code.touched">
+                                        <span *ngIf="code.errors?.['required']" style="color: red;"><i>Please enter
+                                                name</i></span>
+                                        <span *ngIf="code.errors?.['pattern']" style="color: red;"><i>invalid
+                                                format</i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <label>
+                                            Mode<span style="color: red;">*</span>
+                                        </label><br>
+
+
+                                        <select class="form-control" required name="mode" ngModel #mode="ngModel"
+                                            [(ngModel)]="qstnMode">
+                                            <option value="exam" selected>exam</option>
+                                            <option value="practise">practise</option>
+                                        </select>
+
+                                    </div>
+                                    <div *ngIf="mode.touched">
+                                        <span *ngIf="mode.errors?.['required']" style="color: red;"><i>Please select
+                                                mode of Exam</i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <label>
+                                            Difficulty <span style="color: red;">*</span>
+                                        </label><br>
+                                        <select class="form-control" required name="difficulty1" ngModel
+                                            #difficulty="ngModel" [(ngModel)]="difficultylevel">
+                                            <option value="easy">easy</option>
+                                            <option value="medium" selected>medium</option>
+                                            <option value="tough">Tough</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="difficulty.touched">
+                                        <span *ngIf="difficulty.errors?.['required']" style="color: red;"><i>Please
+                                                select level of exam</i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="scoreLabel">
+                                        <label class="mt-3">
+                                            Score <span style="color: red;">*</span>
+                                        </label>
+                                        <input type="number" required class="form-control" pattern="(100|[0-9]{1,2})"
+                                            name="score" ngModel #score="ngModel" [(ngModel)]="totalscore">
+                                    </div>
+                                    <div *ngIf="score.touched">
+                                        <span *ngIf="score.errors?.['required']" style="color: red;"><i>Please enter
+                                                score</i></span>
+                                        <span *ngIf="score.errors?.['pattern']" style="color: red;"><i>score must be,
+                                                less than or equal to 100</i></span>
+                                    </div>
+                                </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <td>
+                                    <div class="scoreLabel">
+                                        <label class="mt-3">
+                                            Timelimit <span style="color: red;">*</span>
+                                        </label>
+                                        <input type="time" required placeholder="MM:SS"
+                                            pattern="(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]" class="form-control"
+                                            name="timeLimit" ngModel #timeLimit="ngModel">
+                                    </div>
+                                    <div *ngIf="timeLimit.touched">
+                                        <span *ngIf="timeLimit.errors?.['required']" style="color: red;"><i>enter time
+                                                limit</i></span>
+                                        <span *ngIf="timeLimit.errors?.['pattern']" style="color: red;"><i>invalid
+                                                format</i></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="p-5">
+                                <td>
+                                    <div class="dropdown">
+                                        <label>
+                                            Question <span style="color: red;">*</span>
+                                        </label><br>
+                                        <select class="form-control" required name="questionname" ngModel
+                                            #questions="ngModel" [(ngModel)]="questionname">
+                                            <option value="Test1">Test1</option>
+                                            <option value="Test2" >Test2</option>
+                                            <option value="Test3">Test3</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="questions.touched">
+                                        <span *ngIf="questions.errors?.['required']" style="color: red;"><i>Please
+                                                select question</i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <label>
+                                            Format<span style="color: red;">*</span>
+                                        </label><br>
+                                        <select class="form-control" [(ngModel)]="txtformat" required name="format"
+                                            ngModel #format="ngModel">
+                                            <option value="option1" selected>TEXT</option>
+                                            <option value="option2">MEDIA</option>
+                                            <option value="option2">AUDIO</option>
+                                            <option value="option2">VIDEO</option>
+
+                                        </select>
+                                    </div>
+                                    <div *ngIf="format.touched">
+                                        <span *ngIf="format.errors?.['required']" style="color: red;"><i>select format
+                                                of exam</i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <label>
+                                            Type<span style="color: red;">*</span>
+                                        </label><br>
+                                        <select class="form-control" [(ngModel)]="questionType" required
+                                            (change)="onDropdownChange($event)" name="questionType" ngModel
+                                            #type="ngModel">
+                                            <option value="">Select Type</option>
+                                            <option value="match_the_following">match the following </option>
+                                            <option value="Re-Order">Re-Order</option>
+                                        </select>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- content for hide and show dropdown -->
+                    <div *ngIf="selectedOption === 'match_the_following'">
+                        <div class="d-flex">
+                            <i class="bi bi-question-circle-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;<h6>Match The Following
+                            </h6>
+                        </div>
+                        <div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="dropdown">
+                                                <label>
+                                                    Column A : Media Type<span style="color: red;">*</span>
+                                                </label><br>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <label>
+                                                    Column B : Media Type<span style="color: red;">*</span>
+                                                </label><br>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="dropdown">
+                                                <div class="divExtention">
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <div class="divExtention">
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                    <div class="divExtentionclass">
+                                                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                                                            minus animi, </P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="color: red;"><i>Type Answers in Add Answer Section</i></p>
+
+                        </div>
+                    </div>
+                    <div *ngIf="selectedOption === 'Re-Order'">
+                        <div>
+
+                            <div class="d-flex">
+                                <i class="bi bi-question-circle-fill"></i>&nbsp;&nbsp;&nbsp;&nbsp;<h6>Re-Order the Words
+                                </h6>
+                            </div>
+                            <input type="text" class="form-control" readonly name="read"
+                                value="Lorem ipsum dolor sit, amet consectetur adipisicing elit."><br>
+                            <input type="text" class="form-control" readonly name="read1"
+                                value="Lorem ipsum dolor sit, amet consectetur adipisicing elit."><br>
+                            <input type="text" class="form-control" readonly name="read2"
+                                value="Lorem ipsum dolor sit, amet consectetur adipisicing elit."><br>
+                            <input type="text" class="form-control" readonly name="read3"
+                                value="Lorem ipsum dolor sit, amet consectetur adipisicing elit."><br>
+                        </div>
+                        <p style="color: red;"><i>Type Answers in Add Answer Section</i></p>
+                    </div>
+                </div>
+            </div>
+            <!-- second accordion content -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
+                        STEP 2 : ADD ANSWER
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        <p *ngIf="selectedOption === ''"><strong> Fill the Step 1 and select the Question type</strong>
+                        </p>
+                        <div *ngIf="selectedOption === 'match_the_following'">
+                            <div>
+                                <span style="color: red;">*</span>
+                                <p>Add correct answer to each</p>
+                                <div class="row" style="padding-bottom: 40px;">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="mtf1"
+                                            value="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="question1">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 40px;">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="mtf2"
+                                            value="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="question2">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 40px;">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="mtf3"
+                                            value="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="question3">
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 40px;">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="mtf4"
+                                            value="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="question4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="selectedOption === 'Re-Order'">
+                            <div>
+
+                                <input type="text" class="form-control" placeholder="Answer type here-question 1"
+                                    name="readonly1"><br>
+                                <input type="text" class="form-control" placeholder="Answer type here-question 2"
+                                    name="readonly2"><br>
+                                <input type="text" class="form-control" placeholder="Answer type here-question 3"
+                                    name="readonly3"><br>
+                                <input type="text" class="form-control" placeholder="Answer type here-question 4"
+                                    name="readonly4"><br>
+                                <input type="text" class="form-control" placeholder="Answer type here-question 5"
+                                    name="readonly5"><br>
+                            </div>
+                        </div>
+                        <button type="submit" *ngIf="selectedOption != ''" [disabled]="!form.valid"
+                            class="btn btn-primary" (click)="localstoragedata()">submit Answers  </button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
