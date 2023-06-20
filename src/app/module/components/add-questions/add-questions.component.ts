@@ -42,7 +42,6 @@ export class AddQuestionsComponent {
     console.log(event);
   }
 
-
 // set the values to localStorage
   submit(data: any) {
     console.log(data)
