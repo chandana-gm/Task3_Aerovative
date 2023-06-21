@@ -46,7 +46,7 @@ export class AddQuestionsComponent {
   submit(data: any) {
     console.log(data)
     this.mainArray =JSON.parse( localStorage.getItem('updated')  || '')
-    
+
     // push values to array
     this.mainArray.push(data)
 
@@ -60,4 +60,5 @@ export class AddQuestionsComponent {
   }
 
 }
+
 

@@ -13,7 +13,5 @@ url='assets/data/data.json'
     return this.http.get(this.url)
   }
 
-  // addQuestion(formData: any): Observable<any> {
-  //   return this.http.post(this.url, formData)
-  // }
+ 
 }

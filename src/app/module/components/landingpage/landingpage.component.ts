@@ -43,7 +43,7 @@ export class LandingpageComponent {
     }
     else{
       this.service.getData().subscribe((values)=>{
-        // console.log(values);
+        console.log(values);
         if(values.length >=0){
           this.myArrayData= values
           this.displayArray = this.myArrayData
@@ -68,6 +68,7 @@ modalFunction(selectedrow: any){
 }
 
 
+
 // fillter
 filterCode() {
   if (this.questioncode != 'all') {
@@ -88,7 +89,5 @@ filterCode() {
     this.displayArray = this.myArrayData
   }
 }
-
-
 
 }
